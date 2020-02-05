@@ -2,17 +2,19 @@ import React, { Component } from "react";
 import $ from "jquery";
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
   Link
 } from "react-router-dom";
-import HeaderComponent from "../../src/Components/HeaderComponent";
-import Constants from "../../src/Constants.js"
+import ReactDOM from 'react-dom';
+import UserProfileComponent from "./UserProfile.js";
+import Constants from "../Constants.js"
+
 class LoginComponent extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+    };
   }
 
   render() {
@@ -30,34 +32,38 @@ class LoginComponent extends Component {
           </div>
         </form>
         <Router>
-          <Link to="/login" className="btn bg-success text-white" onClick={this.handleLogin}><h3>Login</h3></Link>
-          <Switch>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-          </Switch>
+          <Link to="/login" className="btn bg-success text-white" onClick={handleLogin}><h3>Login</h3></Link>
         </Router>
         <hr className="bg-success"></hr>
       </div>
 
     )
   }
-
-  handleLogin() {
-    var auth = btoa($("#usernameInput").val() + ":" + $("#passwordInput").val());
-    $.ajax({
-      type: "GET",
-      headers: { Authorization: "Basic " + auth },
-      url: Constants.API + "user",
-      success: function (data) {
-        console.log(data);
-        return data;
-      }
-    });
-  }
 }
 
-function Login() {
-  return (<div className="container"></div>);
+function handleLogin() {
+  var auth = btoa($("#usernameInput").val() + ":" + $("#passwordInput").val());
+  $.ajax({
+    type: "GET",
+    headers: { Authorization: "Basic " + auth },
+    url: Constants.API + "user",
+    success: function (data) {
+      ReactDOM.render((
+        <Router>
+          <Route path="/login" />
+          <UserProfileComponent data={data} />
+        </Router>
+      ), document.getElementById('root'));
+      console.log(data);
+    },
+    error: function() {
+      $("#usernameInput").removeClass("form-control border border-dark");
+      $("#usernameInput").addClass("form-control border border-danger");
+      $("#passwordInput").removeClass("form-control border border-dark");
+      $("#passwordInput").addClass("form-control border border-danger");
+      alert("Your Login credentials are incorrect!");
+    }
+
+  });
 }
 export default LoginComponent;

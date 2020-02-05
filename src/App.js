@@ -1,7 +1,7 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import LoginComponent from "../src/Components/LoginComponent";
-import HeaderComponent from "../src/Components/HeaderComponent";
+import LoginComponent from "./Components/Login";
+import HeaderComponent from "./Components/Header";
 
 function App() {
   return (
