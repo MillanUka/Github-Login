@@ -1,0 +1,25 @@
+#repos {
+    background-color: #20A4F3;
+}
+
+#reposList {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+#details {
+    background-color: #03191E;
+}
+
+#repoItem {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+#repos h1 {
+    max-width: 100%;
+    color: white;
+}

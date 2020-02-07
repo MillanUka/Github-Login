@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import $ from "jquery";
-
+import Repo from "../Components/Repo.js";
+import Custom from "../Custom.css";
+import Constants from "../Constants.js";
 class UserProfile extends Component {
+
     constructor(props) {
         super(props);
         this.state = {};
@@ -9,57 +12,58 @@ class UserProfile extends Component {
 
     render() {
         const { data } = this.props;
-        console.log(data)
+        console.log(data);
+        var repos = this.getRepos(data)
+        console.log(repos);
         return (
-            <div className="container">
-                <div className="container border border-dark" id="repos">
-                    <h1 className="display-1"> Repositories </h1>
-                    <ul className="list-group border border dark">
-                        {this.getRepos(data)}
-                    </ul>
-                </div>
-                <div className="sticky-top">
-                    <div className="card card-block border border-dark">
-                        <div className="card-title">
-                            <h1>{data.login}</h1>
-                        </div>
-                        <div className="card-img-top" style={{ textAlign: "left" }}>
-                            <img src={data.avatar_url} alt="Avatar"></img>
-                        </div>
-                        <div className="card-body">
-                            <div className="container-sm">
-                                <strong>
-                                    <p>Name: {(data.name != null) ? data.name : data.login}</p>
-                                    <p>Company: {(data.company != null) ? data.company : "None"}</p>
-                                    <p>Blog: <a href={data.blog}>{data.blog}</a></p>
-                                    <p>Email: {(data.email != null) ? data.email : "None"}</p>
-                                    <p>Bio: {data.bio}</p>
-                                </strong>
-                            </div>
+            <div className="container-fluid" id="details">
+                <div className="container bg-white">
+                    <h1>{data.login}</h1>
+                    <img src={data.avatar_url} alt="Avatar"></img>
+                    <br></br>
+                    <div className="container border border-dark">
+                        <p>
+                            Name: {(data.name != null) ? data.name : data.login}
+                            <br></br>
+                            Company: {(data.company != null) ? data.company : "None"}
+                            <br></br>
+                            Blog: <a href={data.blog}>{data.blog}</a>
+                            <br></br>
+                            Email: {(data.email != null) ? data.email : "None"}
+                            <br></br>
+                            Bio: {data.bio}
+                        </p>
+                    </div>
+                    <br></br>
+                    <div className="container" id="repos">
+                        <div className="container border border-dark">
+                            <h1> Repositories </h1>
+                            <ul className="list-group border border dark" id="reposList">
+                                {repos.responseJSON.map((repo, key) =>
+                                    <Repo key={key} name={repo.full_name} />)}
+                            </ul>
+                            <br></br>
                         </div>
                     </div>
+                    <br></br>
                 </div>
+                <br></br>
             </div>
         )
     }
     getRepos(data) {
-        $.ajax({
+        const { auth } = this.props;
+        console.log(data.url)
+        return $.ajax({
             type: "GET",
-            url: data.repos_url,
+            headers: { Authorization: "Basic " + auth },
+            url: data.repos_url + "?type=all&per_page=100",
+            async: false,
             success: function (data) {
-                console.log(data);
-    
-                return data.map(function(repo, key){
-                    console.log(repo.full_name)
-                    return <li className="list-group-item border border-dark" key={key}>{repo.full_name}</li>;
-                });
+                var repos = data;
+                console.log(repos);
             }
-    
-        });
+        })
     }
 }
-
-
-
-
 export default UserProfile;

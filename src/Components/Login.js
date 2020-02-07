@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import UserProfileComponent from "./UserProfile.js";
-import Constants from "../Constants.js"
+import Constants from "../Constants.js";
 
 class LoginComponent extends Component {
   constructor(props) {
@@ -47,11 +47,12 @@ function handleLogin() {
     type: "GET",
     headers: { Authorization: "Basic " + auth },
     url: Constants.API + "user",
+    async: false, 
     success: function (data) {
       ReactDOM.render((
         <Router>
-          <Route path="/login" />
-          <UserProfileComponent data={data} />
+          <Route path="/user" />
+          <UserProfileComponent data={data} auth={auth}/>
         </Router>
       ), document.getElementById('root'));
       console.log(data);
