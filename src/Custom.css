@@ -15,8 +15,14 @@
     text-align: center;
 }
 
+#repoItem button {
+    text-align: center;
+    background-color: #20A4F3;
+}
+
 img {
-    max-width: 100%;
+    max-width: 50%;
+    max-height: 50%;
 }
 
 #repos h1 {

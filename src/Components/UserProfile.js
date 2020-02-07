@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import $ from "jquery";
 import Repo from "../Components/Repo.js";
 import Custom from "../Custom.css";
-import Constants from "../Constants.js";
 class UserProfile extends Component {
 
     constructor(props) {
@@ -29,7 +28,7 @@ class UserProfile extends Component {
                             <br></br>
                             Blog: <a href={data.blog}>{data.blog}</a>
                             <br></br>
-                            Email: {(data.email != null) ? data.email : "None"}
+                            Email: <a href={"mailto:"+data.email}>{(data.email != null) ? data.email : "None"}</a>
                             <br></br>
                             Bio: {data.bio}
                         </p>
