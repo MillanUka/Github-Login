@@ -1,5 +1,16 @@
+#background {
+    background-color: #56667A;
+}
+
+#profile {}
+
+#details {
+    border-width: 2px;
+    border-style: solid;
+}
+
 #repos {
-    background-color: #20A4F3;
+    background-color: #273043;
 }
 
 #reposList {
@@ -7,25 +18,59 @@
     overflow-y: scroll;
 }
 
-#details {
-    background-color: #03191E;
+#commits {
+    background-color: #273043;
 }
 
-#repoItem {
-    text-align: center;
-}
-
-#repoItem button {
-    text-align: center;
-    background-color: #20A4F3;
-}
-
-img {
-    max-width: 50%;
-    max-height: 50%;
+#commitsList {
+    max-height: 200px;
+    overflow-y: scroll;
 }
 
 #repos h1 {
     max-width: 100%;
+    color: white;
+}
+
+#commits h1 {
+    max-width: 100%;
+    color: white;
+}
+
+#stars {
+    background-color: #273043;
+}
+
+#starsList {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+#stars h1 {
+    max-width: 100%;
+    color: white;
+}
+
+#repoItem {
+    text-align: center;
+    max-width: 100%;
+}
+
+#repoItem button {
+    text-align: center;
+    background-color: #6E7E85;
+}
+
+#commitsItem button {
+    text-align: center;
+    background-color: #6E7E85;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.btn a {
     color: white;
 }

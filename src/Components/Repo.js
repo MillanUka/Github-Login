@@ -7,12 +7,12 @@ class Repo extends Component {
     }
 
     render() {
-        const { name } = this.props;
-        console.log(name)
+        const { name, url, date } = this.props;
         return (
             <li className="list-group-item border border-dark" id="repoItem">
                 <h4>{name}</h4>
-                <button className="btn text-white">View On Github</button>
+                <h4>Last updated: {date.toDateString()}</h4>
+                <button className="btn text-white"><a href={url}>View On Github</a></button>
             </li>
         )
     }
