@@ -37,10 +37,10 @@ class UserProfile extends Component {
                         </p>
                     </div>
                     <br></br>
-                    <div className="container" id="repos">
+                    <div className="container rounded" id="listContainer">
                         <div className="container border border-dark">
                             <h1> Repositories </h1>
-                            <ul className="list-group border border dark rounded" id="reposList">
+                            <ul className="list-group border border dark rounded" id="list">
                                 {repos.responseJSON.map((repo, key) =>
                                     <Repo key={key} name={repo.full_name} url={repo.html_url} date={new Date(repo.updated_at)} />)}
                             </ul>
@@ -48,10 +48,10 @@ class UserProfile extends Component {
                         </div>
                     </div>
                     <br></br>
-                    <div className="container" id="stars">
+                    <div className="container rounded" id="listContainer">
                         <div className="container border border-dark">
                             <h1> Starred Projects </h1>
-                            <ul className="list-group border border dark rounded" id="starsList">
+                            <ul className="list-group border border dark rounded" id="list">
                                 {stars.responseJSON.map((star, key) =>
                                     <Repo key={key} name={star.full_name} url={star.html_url} date={new Date(star.updated_at)} />)}
                             </ul>
@@ -59,10 +59,10 @@ class UserProfile extends Component {
                         </div>
                     </div>
                     <br></br>
-                    <div className="container" id="commits">
+                    <div className="container rounded" id="listContainer">
                         <div className="container border border-dark">
                             <h1> Recent Commits </h1>
-                            <ul className="list-group border border dark rounded" id="commitsList">
+                            <ul className="list-group border border dark rounded" id="list">
                                 {events.responseJSON.map((event, key) =>
                                     <Commit key={key} commits= {event.payload.commits} date={new Date(event.created_at)} repo={event.repo} user={data.login}/>)}
                             </ul>

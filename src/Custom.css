@@ -9,59 +9,26 @@
     border-style: solid;
 }
 
-#repos {
+#listContainer {
     background-color: #273043;
 }
 
-#reposList {
-    max-height: 200px;
-    overflow-y: scroll;
-}
-
-#commits {
-    background-color: #273043;
-}
-
-#commitsList {
-    max-height: 200px;
-    overflow-y: scroll;
-}
-
-#repos h1 {
+#listContainer h1 {
     max-width: 100%;
     color: white;
 }
 
-#commits h1 {
-    max-width: 100%;
-    color: white;
-}
-
-#stars {
-    background-color: #273043;
-}
-
-#starsList {
+#list {
     max-height: 200px;
     overflow-y: scroll;
 }
 
-#stars h1 {
-    max-width: 100%;
-    color: white;
-}
-
-#repoItem {
+#item {
     text-align: center;
     max-width: 100%;
 }
 
-#repoItem button {
-    text-align: center;
-    background-color: #6E7E85;
-}
-
-#commitsItem button {
+#item button {
     text-align: center;
     background-color: #6E7E85;
 }
