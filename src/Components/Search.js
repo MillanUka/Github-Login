@@ -29,11 +29,7 @@ class Search extends Component {
         <div className="container-sm">
           <div className="card-column border border-dark" id="searchResults">
             {
-              console.log(this.state.searchItems)
-            }
-            {
               this.state.searchItems.map((searchItem) => {
-                console.log(searchItem);
                 return <SearchItem searchItem={searchItem} key={searchItem.id}/>
               })
             }
@@ -47,7 +43,6 @@ class Search extends Component {
   async handleSearch() {
     var searchResults = [];
     var searchQuery =  document.getElementById("usernameInput").value;
-    console.log(Constants.API + Constants.SEARCH_USER + searchQuery);
     await fetch(Constants.API + Constants.SEARCH_USER + searchQuery)
     .then(
       await async function (response) {
@@ -59,7 +54,6 @@ class Search extends Component {
   
           // Examine the text in the response
          await response.json().then( function (data) {
-            console.log(data);
             if (data.message) {
               alert("You have made too many calls to the Github API. Please try again in an hour");
               return;
@@ -75,7 +69,6 @@ class Search extends Component {
         alert("There was a problem")
       });
 
-    console.log(searchResults);
     await this.setState({searchItems : searchResults});
   }
 }

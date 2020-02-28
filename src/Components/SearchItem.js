@@ -36,7 +36,7 @@ class SearchItem extends Component {
             .then(
                 function (response) {
                     if (response.status !== 200) {
-                        console.log('Looks like there was a problem. Status Code: ' +
+                        alert('Looks like there was a problem. Status Code: ' +
                             response.status);
                         return;
                     }
@@ -49,7 +49,6 @@ class SearchItem extends Component {
                                 <UserProfile data={data} />
                             </Router>
                         ), document.getElementById('root'));
-                        console.log(data);
                     });
                 }
             )

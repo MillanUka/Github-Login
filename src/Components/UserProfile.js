@@ -7,7 +7,6 @@ class UserProfile extends Component {
     constructor(props) {
         super(props);
         const { data } = this.props;
-        console.log(data);
         this.getRepos = this.getRepos.bind(this);
         this.getStars = this.getStars.bind(this);
         this.getEvents = this.getEvents.bind(this);
@@ -18,13 +17,10 @@ class UserProfile extends Component {
             stars: this.getStars(data),
             events: this.getEvents(data)
         };
-
-        console.log(this.state)
     }
 
     render() {
         const { data } = this.props;
-        console.log(data);
         return (<div className="container-fluid" id="background">
             <div className="container bg-white" id="profile">
                 <h1>{data.login}</h1>
@@ -88,22 +84,22 @@ class UserProfile extends Component {
     async getRepos(data) {
         var dataReturned = await this.getData(data.repos_url + "?type=all");
         await this.setState({ repos: dataReturned });
-        console.log(this.state);
         return await dataReturned
     }
     async getStars(data) {
         var dataReturned = await this.getData(data.url + "/starred");
         await this.setState({ stars: dataReturned });
-        console.log(this.state);
         return await dataReturned;
     }
 
     async getEvents(data) {
         var dataReturned = await this.getData(data.url + "/events");
+        await this.delay(1000);
         await this.setState({ events: dataReturned, isFetching: true });
-        console.log(this.state);
         return await dataReturned
     }
+
+    delay = ms => new Promise(res => setTimeout(res, ms));
 
     async getData(url) {
         var dataReturned;
@@ -118,7 +114,6 @@ class UserProfile extends Component {
 
                     // Examine the text in the response
                     await response.json().then( async function (data) {
-                        console.log(data);
                         dataReturned = await data;
                         if (data.message) {
                             alert("You have made too many calls to the Github API. Please try again in an hour");
@@ -128,7 +123,6 @@ class UserProfile extends Component {
                         alert("There was a problem")
                     });
                 })
-        console.log(dataReturned);
         return await dataReturned;
     }
 }

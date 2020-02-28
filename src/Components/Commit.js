@@ -8,12 +8,9 @@ class Event extends Component {
 
     render() {
         const { commits, date, repo, user } = this.props;
-        console.log(user)
         if (commits != null) {
             return commits.map((commit, key) => {
                 var message = commit.message;
-                var messageLink = commit.url;
-                console.log(commit)
                 return (
                     <li className="list-group-item border border-dark" id="item" style={{textAlign : "left"}}>
                         <h5><a href={"https://github.com/" + repo.name + "/commit/" + commit.sha}>{message}</a></h5>
