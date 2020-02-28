@@ -7,7 +7,6 @@ import {
 import UserProfile from "./UserProfile.js";
 import Constants from "../Constants.js";
 import ReactDOM from 'react-dom';
-import $ from "jquery";
 class SearchItem extends Component {
     constructor(props) {
         super(props);
@@ -53,9 +52,6 @@ class SearchItem extends Component {
                 }
             )
             .catch(function (err) {
-                $("#usernameInput").removeClass("form-control border border-dark");
-                $("#usernameInput").addClass("form-control border border-danger");
-                alert("Your Login credentials are incorrect!");
             });
     }
 
