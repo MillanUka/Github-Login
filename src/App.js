@@ -1,14 +1,14 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import LoginComponent from "./Components/Login";
-import HeaderComponent from "./Components/Header";
+import Search from "./Components/Search";
+import Header from "./Components/Header";
 
 function App() {
   return (
     <div className="App" id="App">
-      <HeaderComponent />
+      <Header />
       <br></br>
-      <LoginComponent />
+      <Search />
     </div>
   );
 }

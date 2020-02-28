@@ -9,9 +9,9 @@ class HeaderComponent extends Component {
 
     render() {
         return (
-            <div className="container-fluid bg-dark" style={{ textAlign: "center", height: "150%" }}>
-                <img src={GithubLogo} alt="Github logo" style={{ width: "45px", height: "45px", position: "absolute", right: "5px", left : "5px" }} />
-                <h1 className="display-5 text-white" >Github Login</h1>
+            <div className="container-fluid bg-dark" style={{ textAlign: "center", height: "100%" }}>
+                <img src={GithubLogo} alt="Github logo"  id={"github-logo"}/>
+                <h1 className="display-5 text-white" style={{ height: "100%", paddingLeft: "10%" }} >Github Search</h1>
             </div>
         )
     }

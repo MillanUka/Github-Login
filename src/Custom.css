@@ -4,6 +4,10 @@
 
 #profile {}
 
+#usernameInput {
+    min-width: 75%;
+}
+
 #details {
     border-width: 2px;
     border-style: solid;
@@ -40,4 +44,18 @@ img {
 
 .btn a {
     color: white;
+}
+
+#searchResults {
+    overflow-y: scroll;
+    max-height: 300px;
+    min-height: 300px;
+}
+
+#github-logo {
+    width: 5vh;
+    height: 5vh;
+    position: absolute;
+    right: 5px;
+    left: 5px;
 }

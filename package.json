@@ -4,6 +4,7 @@
     "private": true,
     "homepage": "https://millanuka.github.io/Github-Login/",
     "dependencies": {
+        "@popperjs/core": "^2.0.6",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.4.0",
         "@testing-library/user-event": "^7.2.1",
@@ -19,7 +20,7 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "deploy": "gh-pages -d build",
+        "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -35,5 +36,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "gh-pages": "^2.2.0"
     }
 }
