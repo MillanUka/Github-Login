@@ -2,7 +2,7 @@
     "name": "github-login",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://millanuka.github.io/Github-Login/",
+    "homepage": "https://millanuka.github.io/Github-Search/",
     "dependencies": {
         "@popperjs/core": "^2.0.6",
         "@testing-library/jest-dom": "^4.2.4",
