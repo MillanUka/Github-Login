@@ -49,7 +49,7 @@ img {
 #searchResults {
     overflow-y: scroll;
     max-height: 300px;
-    min-height: 300px;
+    min-height: 400px;
 }
 
 #github-logo {

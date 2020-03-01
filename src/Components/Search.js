@@ -15,19 +15,18 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <div className="container-xl border" style={{ textAlign: "center", maxWidth: "25%" }}>
+        <div className={"container-xl"} style={{ textAlign: "center"}}>
           <form>
-            <div className="container-xl" style={{ textAlign: "left" }}>
-              <div className="form-group">
-                <input type="text" className="form-control border border-dark" placeholder="" id="usernameInput"></input>
+              <div className={"input-group input-group-sm"}>
+                <input type={"text"} className={"form-control border border-dark"} placeholder={""} id={"usernameInput"}></input>
+                <div className={"btn-sm bg-success text-white"} onClick={this.handleSearch}>Search</div>
               </div>
-            </div>
           </form>
-          <button className={"btn bg-success text-white"} onClick={this.handleSearch}>Search</button>
+          
           <hr className="bg-success"></hr>
         </div>
-        <div className="container-sm">
-          <div className="card-column border border-dark" id="searchResults">
+        <div className={"container-xl"}>
+          <div className={"card-column border border-dark"} id={"searchResults"}>
             {
               this.state.searchItems.map((searchItem) => {
                 return <SearchItem searchItem={searchItem} key={searchItem.id}/>
